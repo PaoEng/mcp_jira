@@ -7,6 +7,31 @@ All notable changes to the documentation suite are recorded here.
 
 ---
 
+## [1.2.0] - 2026-05-27
+
+### Fixed
+- 🛠️ **GetAllProjectsAsync v2/v3 compatibility**: Fixed `jira project list` so Jira Server / Data Center no longer falls back to an API path that returns `404`.
+
+### Added
+- 📎 **Attachment & Worklog Commands**: Documented `jira issue attachment-meta` and `jira issue get-worklog`.
+- 🧩 **Issue Type & Status Commands**: Documented `jira issuetype list`, `jira issuetype get`, `jira status list`, `jira status get`, and `jira status categories`.
+- 🏗️ **Project Metadata Commands**: Documented `jira project statuses`, `jira project types`, `jira project roles`, `jira project role`, `jira project properties`, and `jira project features`.
+- **WireMock Command Integration Tests**: Added 193 command-level integration tests.
+- ☢️ **Mutation Testing Coverage**: Added Stryker mutation testing coverage.
+
+### Updated
+- 📝 **SERVICES.md**: Published the sanitized public reference for 30 core MCP tools (`68` tools implemented overall).
+- 📝 **Public docs**: Re-published sanitized INSTALLATION, CONFIGURATION, MCP-SETUP, TROUBLESHOOTING, SERVICES, MANIFEST, and CHANGELOG content via the Hermes Agent workflow.
+
+### Validation
+- ✅ Private path scan: clean
+- ✅ Private repo reference scan: clean
+- ✅ Hermes Agent branding: maintained
+- ✅ Author attribution: maintained
+- ✅ Binary integrity: `publish/jira` preserved
+
+---
+
 ## [1.1.0] - 2025-01-15
 
 ### Added
@@ -63,14 +88,14 @@ All changes in this changelog are attributed to:
 
 **Hermes Agent** • MIT License
 **Author**: Paolino Salamone
-**Version**: 1.1.0
-**Last Updated**: 2025-01-15
+**Version**: 1.2.0
+**Last Updated**: 2026-05-27
 
 ---
 
 ## 🔄 Publishing Workflow
 
-Every change follows the HermesAgent orchestration:
+Every change follows the Hermes Agent publishing workflow:
 
 ```
 Source Docs Edit

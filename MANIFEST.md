@@ -79,6 +79,7 @@ Always keep:
 - **7 published docs** plus the main `README.md`
 - **30 core MCP tools documented** in `SERVICES.md`
 - **68 tools implemented overall** in the server codebase
+- **193 WireMock command integration tests** in the validation suite
 - **1 distributed binary** in `publish/jira`
 
 ---
@@ -114,4 +115,4 @@ MIT License — See [LICENSE](LICENSE)
 
 **Hermes Agent** • Documentation Suite Reference  
 **Author**: Paolino Salamone  
-Last updated: 2025-01-15
+Last updated: 2026-05-27
