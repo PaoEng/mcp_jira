@@ -354,7 +354,7 @@ Claude/Copilot displays result to you
 
 ---
 
-**License**: MIT
+**License**: MIT  
 **Hermes Agent** • Integration Tier
 
 **Author**: Paolino Salamone

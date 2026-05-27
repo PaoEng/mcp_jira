@@ -1011,8 +1011,8 @@ For issues or questions about MCP tools:
 
 ---
 
-**License**: MIT
-**Hermes Agent** • MCP Services Reference
+**License**: MIT  
+**Hermes Agent** • MCP Services Reference  
 
 **Author**: Paolino Salamone
 **Last Updated**: 2025-01-15

@@ -287,7 +287,7 @@ This indicates **API version mismatch**:
      --url https://jira.eng.com/jira \
      --token <PAT> \
      --auth-mode bearer
-
+   
    # Manually edit ~/.config/jira-cli/config.json
    "apiVersion": "2"
    ```
@@ -436,7 +436,7 @@ Ensure **no debug output** before MCP server starts:
    ```bash
    # macOS
    cat ~/Library/Application\ Support/Claude/claude_desktop_config.json
-
+   
    # Linux
    cat ~/.config/Claude/claude_desktop_config.json
    ```
@@ -537,7 +537,7 @@ If issues persist:
 
 ---
 
-**License**: MIT
+**License**: MIT  
 **Hermes Agent** • Support Tier
 
 **Author**: Paolino Salamone

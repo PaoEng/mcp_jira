@@ -48,7 +48,7 @@ mcp_jira/
 The Hermes Agent publishing workflow follows these principles:
 
 1. Source documentation is sanitized before publication.
-2. Local workstation paths and private repository references are removed.
+2. Local workstation paths and internal source references are removed.
 3. `Hermes Agent`, `#HermesAgent`, author attribution, and technical content are preserved.
 4. The public README stays aligned with the current CLI and MCP service surface.
 5. The `publish/jira` binary is never modified by the documentation workflow.
@@ -60,8 +60,8 @@ The Hermes Agent publishing workflow follows these principles:
 Before publishing, verify that the generated docs do **not** contain:
 
 - Absolute local filesystem paths
-- Private repository folder references
-- Private-only labels or markers
+- Internal source folder references
+- Internal-only labels or markers
 - Broken links to unpublished internal material
 
 Always keep:
@@ -88,7 +88,7 @@ Always keep:
 
 After publishing, verify:
 
-- No private repo references remain in `*.md`
+- No internal source references remain in `*.md`
 - No absolute local workstation paths remain in `*.md`
 - `Hermes Agent` branding remains visible
 - `Paolino Salamone` attribution remains visible

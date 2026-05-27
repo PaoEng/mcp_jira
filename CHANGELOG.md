@@ -1,61 +1,36 @@
 # 📝 Hermes Agent - Changelog
 
-**Author**: Paolino Salamone
+**Author**: Paolino Salamone  
 **Project**: Hermes Agent • Documentation Suite
 
 All notable changes to the documentation suite are recorded here.
 
 ---
 
-## [1.2.0] - 2026-05-27
-
-### Fixed
-- 🛠️ **GetAllProjectsAsync v2/v3 compatibility**: Fixed `jira project list` so Jira Server / Data Center no longer falls back to an API path that returns `404`.
-
-### Added
-- 📎 **Attachment & Worklog Commands**: Documented `jira issue attachment-meta` and `jira issue get-worklog`.
-- 🧩 **Issue Type & Status Commands**: Documented `jira issuetype list`, `jira issuetype get`, `jira status list`, `jira status get`, and `jira status categories`.
-- 🏗️ **Project Metadata Commands**: Documented `jira project statuses`, `jira project types`, `jira project roles`, `jira project role`, `jira project properties`, and `jira project features`.
-- **WireMock Command Integration Tests**: Added 193 command-level integration tests.
-- ☢️ **Mutation Testing Coverage**: Added Stryker mutation testing coverage.
-
-### Updated
-- 📝 **SERVICES.md**: Published the sanitized public reference for 30 core MCP tools (`68` tools implemented overall).
-- 📝 **Public docs**: Re-published sanitized INSTALLATION, CONFIGURATION, MCP-SETUP, TROUBLESHOOTING, SERVICES, MANIFEST, and CHANGELOG content via the Hermes Agent workflow.
-
-### Validation
-- ✅ Private path scan: clean
-- ✅ Private repo reference scan: clean
-- ✅ Hermes Agent branding: maintained
-- ✅ Author attribution: maintained
-- ✅ Binary integrity: `publish/jira` preserved
-
----
-
 ## [1.1.0] - 2025-01-15
 
 ### Added
-- ✨ **Author Attribution**: Added "Paolino Salamone" as official author across all documentation files (private + public)
+- ✨ **Author Attribution**: Added "Paolino Salamone" as official author across all documentation files
 - ✨ **Author & Credits Section**: New section in public README.md with author information and documentation policy
-- ✨ **Author Retention Rule**: Updated Hermes Agent publishing workflow sanitization rules to preserve author attribution during publishing workflow
+- ✨ **Author Retention Rule**: Updated HermesAgent.md sanitization rules to preserve author attribution during publishing workflow
 - ✨ **MANIFEST.md Author Policy**: Documented author attribution policy and signature requirements
 - ✨ **CHANGELOG.md**: Version tracking for documentation suite
 
 ### Updated
-- 📝 **Hermes Agent publishing workflow**: Enhanced with author attribution signature in header, sanitization rules, validation check, workflow diagram, and footer
+- 📝 **HermesAgent.md**: Enhanced with author attribution signature in header, sanitization rules, validation check, workflow diagram, and footer
 - 📝 **MANIFEST.md**: Added author signature and updated tagging section to include author retention policy
 - 📝 **README.md (Public)**: Added Author & Credits section, cleaned up duplicate sections
-- 📝 **All .md files**: Added `**Author**: Paolino Salamone` to headers (7 private, 6 public files)
+- 📝 **All .md files**: Added `**Author**: Paolino Salamone` to headers (all files)
 
 ### Policy Changes
 - **Author Attribution**: All generated documentation now carries author signature: `**Author**: Paolino Salamone`
-- **Sanitization Rule Update**: Hermes Agent publishing workflow now preserves author name during private→public transformation
+- **Sanitization Rule Update**: HermesAgent.md now preserves author name during publishing transformation
 - **Signature Verification**: Phase 6 validation now checks for author attribution in all files
 
 ### Validation
-- ✅ Private repo: 7/7 files with author attribution
-- ✅ Public repo: 6/6 files with author attribution
-- ✅ Zero private references in public docs (maintained)
+- ✅ Documentation suite: author attribution present across source files
+- ✅ Published docs: author attribution present across public files  
+- ✅ Zero internal references in public docs (maintained)
 - ✅ Hermes Agent branding: Maintained across all files
 - ✅ Binary integrity: Preserved (70 MB)
 
@@ -64,18 +39,18 @@ All notable changes to the documentation suite are recorded here.
 ## [1.0.0] - 2025-01-10
 
 ### Initial Release
-- 🎯 **Hermes Agent publishing workflow**: 7-phase orchestration prompt for automated publishing workflow
+- 🎯 **HermesAgent.md**: 7-phase orchestration prompt for automated publishing workflow
 - 📦 **MANIFEST.md**: Internal documentation structure and publishing workflow reference
 - 📚 **SERVICES.md**: Complete reference of 17 MCP tools (issue, attachment, project, field operations)
-- 📖 **INSTALLATION.md**: Binary installation guide (private + sanitized public versions)
-- 🔧 **CONFIGURATION.md**: Jira Cloud/Server authentication setup (private + sanitized public versions)
-- 🔌 **MCP-SETUP.md**: Claude Desktop & GitHub Copilot CLI integration (private + sanitized public versions)
-- 🆘 **TROUBLESHOOTING.md**: 50+ issue resolution scenarios (private + sanitized public versions)
-- 🏗️ **Dual-repo model**: Private (development) + Public (distribution) with automated sanitization
+- 📖 **INSTALLATION.md**: Binary installation guide (source and public versions)
+- 🔧 **CONFIGURATION.md**: Jira Cloud/Server authentication setup (source and public versions)
+- 🔌 **MCP-SETUP.md**: Claude Desktop & GitHub Copilot CLI integration (source and public versions)
+- 🆘 **TROUBLESHOOTING.md**: 50+ issue resolution scenarios (source and public versions)
+- 🏗️ **Dual-doc model**: Source (development) + Public (distribution) with automated sanitization
 
 ### Features
 - Automated sanitization workflow (7 phases)
-- Private reference removal (paths, internal mentions)
+- Internal reference removal (paths, internal mentions)
 - Brand preservation (Hermes Agent tag)
 - Binary immutability (70 MB executable preserved)
 - Publication verification and reporting
@@ -86,25 +61,25 @@ All notable changes to the documentation suite are recorded here.
 
 All changes in this changelog are attributed to:
 
-**Hermes Agent** • MIT License
-**Author**: Paolino Salamone
-**Version**: 1.2.0
-**Last Updated**: 2026-05-27
+**Hermes Agent** • MIT License  
+**Author**: Paolino Salamone  
+**Version**: 1.1.0  
+**Last Updated**: 2025-01-15
 
 ---
 
 ## 🔄 Publishing Workflow
 
-Every change follows the Hermes Agent publishing workflow:
+Every change follows the HermesAgent orchestration:
 
 ```
-Source Docs Edit
+Source Doc Edit
     ↓
-Run the Hermes Agent publishing workflow
+esegui HermesAgent.md (7-phase automation)
     ↓
-Public repo update (sanitized + authored)
+Public Repo Update (sanitized + authored)
     ↓
-Manual git commit
+Manual git commit/push
 ```
 
-For publishing details, see [MANIFEST.md](MANIFEST.md)
+For details, see [HermesAgent.md](HermesAgent.md)
