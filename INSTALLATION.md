@@ -154,8 +154,8 @@ jira config path
 
 ---
 
-**License**: MIT  
-**Hermes Agent** • Installation Tier  
+**License**: MIT
+**Hermes Agent** • Installation Tier
 
 **Author**: Paolino Salamone
 **Last Updated**: 2025-01-15

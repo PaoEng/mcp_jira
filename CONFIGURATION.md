@@ -31,7 +31,7 @@ jira config path
 
 ### Auth Mode: `basic` (Jira Cloud)
 
-**Header**: `Basic Base64(email:token)`  
+**Header**: `Basic Base64(email:token)`
 **API Version**: 3 (auto)
 
 ```json
@@ -50,7 +50,7 @@ jira config path
 
 ### Auth Mode: `bearer` (Jira Server / Data Center)
 
-**Header**: `Bearer <PersonalAccessToken>`  
+**Header**: `Bearer <PersonalAccessToken>`
 **API Version**: 2 (auto)
 
 ```json
@@ -321,11 +321,11 @@ jira issue download-attachment PROJ-123 --id 1003046 --output ~/Downloads
 
 - **Get MCP running**: [MCP-SETUP.md](MCP-SETUP.md)
 - **Troubleshoot issues**: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Run commands**: See [../README.md](../README.md) for full CLI reference
+- **Run commands**: See [README.md](README.md) for full CLI reference
 
 ---
 
-**License**: MIT  
+**License**: MIT
 **Hermes Agent** • Configuration Tier
 
 **Author**: Paolino Salamone

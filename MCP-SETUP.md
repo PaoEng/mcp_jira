@@ -349,12 +349,12 @@ Claude/Copilot displays result to you
 ## 📚 Next Steps
 
 - **Troubleshoot**: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
-- **Full CLI Reference**: [../README.md](../README.md)
+- **Full CLI Reference**: [README.md](README.md)
 - **Configuration Guide**: [CONFIGURATION.md](CONFIGURATION.md)
 
 ---
 
-**License**: MIT  
+**License**: MIT
 **Hermes Agent** • Integration Tier
 
 **Author**: Paolino Salamone

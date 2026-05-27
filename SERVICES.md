@@ -4,20 +4,25 @@
 
 **Author**: Paolino Salamone
 
-> Complete reference of all MCP tools implemented in jira-cli server.
+> Reference of 30 core MCP tools in jira-cli server (68 tools implemented overall in `McpTools.cs`).
 
 ---
 
 ## 🎯 Overview
 
-The jira-cli MCP server exposes the following tools for use with Claude Desktop and GitHub Copilot CLI:
+The jira-cli MCP server exposes 68 MCP tools overall; this guide documents the 30 core tools most useful in Claude Desktop and GitHub Copilot CLI:
 
-- **9 Issue Management Tools**: Get, create, update, search, transition, comment, worklog, attach
-- **3 Attachment Tools**: List, download single, download recursive
-- **4 Project/Context Tools**: Project list, sprint details, user info, current context
+- **10 Issue Management Tools**: Get, create, update, search, list transitions, transition, comment, worklog, attach, get-worklog
+- **4 Attachment Tools**: List, download single, download recursive, get metadata
+- **7 Project Tools**: Project list, project statuses, project types, project roles, project role details, project properties, project features
+- **2 Issue Type Tools**: List all types (optionally by project), get type
+- **3 Status Tools**: List all statuses, get status, list status categories
+- **1 Sprint Tool**: Get sprint details
+- **1 User Tool**: Get current user info
+- **1 Context Tool**: Show current Jira context
 - **1 Field Reference Tool**: List available fields
 
-**Total**: 17 MCP tools available
+**Total**: 30 core MCP tools documented here
 
 ---
 
@@ -513,6 +518,414 @@ Show my Jira configuration
 
 ---
 
+### 18. `get_attachment_metadata`
+
+**Purpose**: Retrieve metadata for a single Jira attachment by its ID.
+
+**Input**:
+```json
+{
+  "attachment_id": "10050"
+}
+```
+
+**Output**:
+```json
+{
+  "id": "10050",
+  "filename": "report.pdf",
+  "size": 23456,
+  "mimeType": "application/pdf",
+  "content": "https://..."
+}
+```
+
+**Example Usage** (Claude):
+```
+Get metadata for attachment 10050
+```
+
+---
+
+### 19. `get_worklog`
+
+**Purpose**: Retrieve a single Jira worklog entry by issue key and worklog ID.
+
+**Input**:
+```json
+{
+  "issue_key": "PROJ-123",
+  "worklog_id": "10001"
+}
+```
+
+**Output**:
+```json
+{
+  "id": "10001",
+  "author": {
+    "displayName": "John Doe"
+  },
+  "timeSpent": "2h",
+  "comment": "Reviewed code",
+  "started": "2025-01-15T09:00:00.000+0000"
+}
+```
+
+**Example Usage** (Claude):
+```
+Show worklog 10001 on PROJ-123
+```
+
+---
+
+### 20. `get_issue_types`
+
+**Purpose**: List all Jira issue types, optionally filtered by project.
+
+**Input**:
+```json
+{
+  "project_id": "10000"
+}
+```
+
+**Output**:
+```json
+[
+  {
+    "id": "10001",
+    "name": "Bug",
+    "subtask": false
+  },
+  {
+    "id": "10002",
+    "name": "Task",
+    "subtask": false
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+List issue types for project 10000
+```
+
+---
+
+### 21. `get_issue_type`
+
+**Purpose**: Retrieve details for a single Jira issue type by ID.
+
+**Input**:
+```json
+{
+  "id": "10001"
+}
+```
+
+**Output**:
+```json
+{
+  "id": "10001",
+  "name": "Bug",
+  "description": "A problem which impairs or prevents the functions of the product.",
+  "subtask": false
+}
+```
+
+**Example Usage** (Claude):
+```
+Get details for issue type 10001
+```
+
+---
+
+### 22. `get_statuses`
+
+**Purpose**: List all Jira statuses available on the site.
+
+**Output**:
+```json
+[
+  {
+    "id": "3",
+    "name": "In Progress",
+    "statusCategory": {
+      "name": "In Progress"
+    }
+  },
+  {
+    "id": "10000",
+    "name": "To Do",
+    "statusCategory": {
+      "name": "To Do"
+    }
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+List all available Jira statuses
+```
+
+---
+
+### 23. `get_status`
+
+**Purpose**: Retrieve a Jira status by ID or name.
+
+**Input**:
+```json
+{
+  "id_or_name": "In Progress"
+}
+```
+
+**Output**:
+```json
+{
+  "id": "3",
+  "name": "In Progress",
+  "description": "This issue is being actively worked on.",
+  "statusCategory": {
+    "name": "In Progress"
+  }
+}
+```
+
+**Example Usage** (Claude):
+```
+Get the Jira status named In Progress
+```
+
+---
+
+### 24. `get_status_categories`
+
+**Purpose**: List all Jira status categories.
+
+**Output**:
+```json
+[
+  {
+    "id": 2,
+    "key": "new",
+    "name": "To Do"
+  },
+  {
+    "id": 4,
+    "key": "indeterminate",
+    "name": "In Progress"
+  },
+  {
+    "id": 3,
+    "key": "done",
+    "name": "Done"
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+List Jira status categories
+```
+
+---
+
+### 25. `get_project_statuses`
+
+**Purpose**: Retrieve Jira statuses for a project, grouped by issue type.
+
+**Input**:
+```json
+{
+  "project_key": "PROJ"
+}
+```
+
+**Output**:
+```json
+[
+  {
+    "issueType": {
+      "id": "10001",
+      "name": "Bug"
+    },
+    "statuses": [
+      {
+        "id": "10000",
+        "name": "To Do"
+      },
+      {
+        "id": "3",
+        "name": "In Progress"
+      }
+    ]
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+Show available statuses for project PROJ by issue type
+```
+
+---
+
+### 26. `get_project_types`
+
+**Purpose**: List all available Jira project types.
+
+**Output**:
+```json
+[
+  {
+    "key": "software",
+    "formattedKey": "software",
+    "description": "Software development project"
+  },
+  {
+    "key": "business",
+    "formattedKey": "business",
+    "description": "Business project"
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+List available Jira project types
+```
+
+---
+
+### 27. `get_project_roles`
+
+**Purpose**: List all project roles for a Jira project.
+
+**Input**:
+```json
+{
+  "project_key": "PROJ"
+}
+```
+
+**Output**:
+```json
+{
+  "Administrators": "https://jira.example.com/rest/api/3/project/PROJ/role/10002",
+  "Developers": "https://jira.example.com/rest/api/3/project/PROJ/role/10003"
+}
+```
+
+**Example Usage** (Claude):
+```
+List project roles for PROJ
+```
+
+---
+
+### 28. `get_project_role`
+
+**Purpose**: Retrieve the details of a specific project role, including actors.
+
+**Input**:
+```json
+{
+  "project_key": "PROJ",
+  "role_id": "10002"
+}
+```
+
+**Output**:
+```json
+{
+  "id": 10002,
+  "name": "Administrators",
+  "actors": [
+    {
+      "displayName": "Jane Doe",
+      "type": "atlassian-user-role-actor"
+    }
+  ]
+}
+```
+
+**Example Usage** (Claude):
+```
+Get project role 10002 for PROJ
+```
+
+---
+
+### 29. `get_project_properties`
+
+**Purpose**: List entity property keys defined on a Jira project.
+
+**Input**:
+```json
+{
+  "project_key": "PROJ"
+}
+```
+
+**Output**:
+```json
+{
+  "keys": [
+    {
+      "key": "com.example.release-channel"
+    },
+    {
+      "key": "com.example.owner"
+    }
+  ]
+}
+```
+
+**Example Usage** (Claude):
+```
+List project property keys for PROJ
+```
+
+---
+
+### 30. `get_project_features`
+
+**Purpose**: List Jira project features and their current state (Cloud only).
+
+**Input**:
+```json
+{
+  "project_key": "PROJ"
+}
+```
+
+**Output**:
+```json
+[
+  {
+    "feature": "jsw.classic.roadmap",
+    "state": "ENABLED",
+    "localisedName": "Roadmap"
+  },
+  {
+    "feature": "jsw.classic.backlog",
+    "state": "ENABLED",
+    "localisedName": "Backlog"
+  }
+]
+```
+
+**Example Usage** (Claude):
+```
+List enabled features for project PROJ
+```
+
+---
+
 ## 🔄 Common Workflows
 
 ### Workflow 1: Create and Track an Issue
@@ -598,8 +1011,8 @@ For issues or questions about MCP tools:
 
 ---
 
-**License**: MIT  
-**Hermes Agent** • MCP Services Reference  
+**License**: MIT
+**Hermes Agent** • MCP Services Reference
 
 **Author**: Paolino Salamone
 **Last Updated**: 2025-01-15
